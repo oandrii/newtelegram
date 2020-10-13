@@ -59,7 +59,6 @@ $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot t
 $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
 
-if ($message == '123') {
     $reply = "share your number";
     $url = "https://api.telegram.org/bot$bot_token/sendMessage";
 
@@ -94,4 +93,3 @@ if ($message == '123') {
     $output = curl_exec($curld);
 
     curl_close($curld);
-}
