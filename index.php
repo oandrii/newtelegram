@@ -9,3 +9,9 @@ $result = json_decode($result);
 file_put_contents($filename, $result);
 
 
+$data = file_get_contents($filename);
+$bookshelf = json_decode($data, TRUE);
+
+echo "<pre>";
+print_r($bookshelf);
+echo "</pre>";
