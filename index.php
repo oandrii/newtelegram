@@ -8,8 +8,8 @@ $filename = 'log.log';
 $data = file_get_contents('php://input');
 file_put_contents($filename, $data);
 
-$data = $data['message'];
-$message = $data['text'];
+///$data = $data['message'];
+$message = $data['message']['text'];
 //
 //switch($message)
 //{
@@ -55,8 +55,9 @@ $message = $data['text'];
 //    return (json_decode($result, 1));
 //}
 
-$bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
-$chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
+if($message == 'qwe') {
+    $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
+    $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
 
     $reply = "share your number";
@@ -70,7 +71,7 @@ $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
             ),
 
         )),
-        "one_time_keyboard" => false, // Can be FALSE (hide keyboard after click)
+        "one_time_keyboard" => true, // Can be FALSE (hide keyboard after click)
         "resize_keyboard" => true // Can be FALSE (vertical resize)
     );
 
@@ -93,3 +94,4 @@ $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
     $output = curl_exec($curld);
 
     curl_close($curld);
+}
