@@ -6,11 +6,8 @@ $filename = 'log.log';
 //$result = file_get_contents($url);
 
 $data = file_get_contents('php://input');
-//$data = json_decode($data, true);
+file_put_contents($filename, $data, FILE_APPEND);
 
 
-//$result = $_POST;
-//$result = json_encode($result, true);
-file_put_contents($filename, $data);
 
 
