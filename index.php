@@ -8,10 +8,11 @@ $filename = 'log.log';
 $data = file_get_contents('php://input');
 file_put_contents($filename, $data);
 
+$bookshelf = json_decode($data, TRUE);
+
 ///$data = $data['message'];
-$message = $data['message']['text'];
-var_dump($message);
-die;
+$message = $bookshelf['message']['text'];
+
 //
 //switch($message)
 //{
@@ -57,6 +58,7 @@ die;
 //    return (json_decode($result, 1));
 //}
 
+if($message == 'qwe') {
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
     $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
@@ -95,3 +97,4 @@ die;
     $output = curl_exec($curld);
 
     curl_close($curld);
+}
