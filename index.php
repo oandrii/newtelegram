@@ -5,8 +5,12 @@ $filename = 'log.log';
 //$url = 'https://api.telegram.org/bot' . $bot_id . '/getUpdates?offset=0';
 //$result = file_get_contents($url);
 
-$result = $_POST;
-$result = json_encode($result, true);
-file_put_contents($filename, $result);
+$data = file_get_contents('php://input');
+//$data = json_decode($data, true);
+
+
+//$result = $_POST;
+//$result = json_encode($result, true);
+file_put_contents($filename, $data);
 
 
