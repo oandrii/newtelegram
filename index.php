@@ -8,8 +8,8 @@ $filename = 'log.log';
 $data = file_get_contents('php://input');
 file_put_contents($filename, $data);
 
-//$data = $data['message'];
-//$message = $data['text'];
+$data = $data['message'];
+$message = $data['text'];
 //
 //switch($message)
 //{
@@ -57,46 +57,41 @@ file_put_contents($filename, $data);
 
 $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
 $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
-$reply = "Working";
-$url = "https://api.telegram.org/bot$bot_token/sendMessage";
 
-$keyboard = array(
-    "keyboard" => array(array(array(
-        "text" => "/button"
 
-    ),
-        array(
-            "text" => "contact",
-            "request_contact" => true // This is OPTIONAL telegram button
+if ($message == '123') {
+    $reply = "share your number";
+    $url = "https://api.telegram.org/bot$bot_token/sendMessage";
 
-        ),
-        array(
-            "text" => "location",
-            "request_location" => true // This is OPTIONAL telegram button
+    $keyboard = array(
+        "keyboard" => array(array(
+            array(
+                "text" => "contact",
+                "request_contact" => true // This is OPTIONAL telegram button
+            ),
 
-        )
+        )),
+        "one_time_keyboard" => false, // Can be FALSE (hide keyboard after click)
+        "resize_keyboard" => true // Can be FALSE (vertical resize)
+    );
 
-    )),
-    "one_time_keyboard" => true, // Can be FALSE (hide keyboard after click)
-    "resize_keyboard" => true // Can be FALSE (vertical resize)
-);
+    $postfields = array(
+        'chat_id' => "$chat_id",
+        'text' => "$reply",
+        'reply_markup' => json_encode($keyboard)
+    );
 
-$postfields = array(
-    'chat_id' => "$chat_id",
-    'text' => "$reply",
-    'reply_markup' => json_encode($keyboard)
-);
+    print_r($postfields);
+    if (!$curld = curl_init()) {
+        exit;
+    }
 
-print_r($postfields);
-if (!$curld = curl_init()) {
-    exit;
+    curl_setopt($curld, CURLOPT_POST, true);
+    curl_setopt($curld, CURLOPT_POSTFIELDS, $postfields);
+    curl_setopt($curld, CURLOPT_URL, $url);
+    curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
+
+    $output = curl_exec($curld);
+
+    curl_close($curld);
 }
-
-curl_setopt($curld, CURLOPT_POST, true);
-curl_setopt($curld, CURLOPT_POSTFIELDS, $postfields);
-curl_setopt($curld, CURLOPT_URL,$url);
-curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
-
-$output = curl_exec($curld);
-
-curl_close ($curld);
