@@ -6,7 +6,7 @@ $filename = 'log.log';
 //$result = file_get_contents($url);
 
 $data = file_get_contents('php://input');
-file_put_contents($filename, $data, FILE_APPEND);
+file_put_contents($filename, $data);
 
 
 
