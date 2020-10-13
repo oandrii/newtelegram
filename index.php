@@ -5,7 +5,7 @@ $filename = 'log.log';
 //$url = 'https://api.telegram.org/bot' . $bot_id . '/getUpdates?offset=0';
 //$result = file_get_contents($url);
 
-$result = "123";
+$result = $_POST;
 
 //$result = $_POST;
 //print_r($result);
