@@ -8,35 +8,49 @@ $filename = 'log.log';
 $data = file_get_contents('php://input');
 file_put_contents($filename, $data);
 
-$keyboard = [
-    'inline_keyboard' => [
-        [
-            ['text' => 'forward me to groups', 'callback_data' => 'someString']
-        ]
-    ]
-];
-$encodedKeyboard = json_encode($keyboard);
-$parameters =
-    array(
-        'chat_id' => 718524282,
-        'text' => '33445566',
-        'reply_markup' => $encodedKeyboard
-    );
+$data = $data['message'];
+$message = $data['text'];
 
-send('sendMessage', $parameters); // function description Below
-
-function send($method, $data)
+switch($message)
 {
-    $url = "https://api.telegram.org/bot1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk". "/" . $method;
+    case '111':
+        $method = 'sendMessage';
+        $send_data = [
+            'text' => 'text',
+            'reply_markup' => [
+                'resize_keyboard' => true,
+                'keyboard' => [
+                    [
+                        ['text' => '1'],
+                        ['text' => '2'],
+                    ],
+                    [
+                        ['text' => '3'],
+                        ['text' => '4'],
+                    ]
+                ]
+            ]
+        ];
+        break;
+}
 
-    if (!$curld = curl_init()) {
-        exit;
-    }
-    curl_setopt($curld, CURLOPT_POST, true);
-    curl_setopt($curld, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($curld, CURLOPT_URL, $url);
-    curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
-    $output = curl_exec($curld);
-    curl_close($curld);
-    return $output;
+$send_data['chat_id'] = $data['chat']['id'];
+$res = sendTelegram($method, $send_data);
+
+function sendTelegram($method, $data, $headers = [])
+{
+    $bot_id = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
+    $curl = curl_init();
+    curl_setopt_array($curl, [
+        CURLOPT_POST => 1,
+        CURLOPT_HEADER => 0,
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => 'https://api.telegram.org/bot' . $bot_id . '/' . $method,
+        CURLOPT_POSTFIELDS => json_encode($data),
+        CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
+    ]);
+
+    $result = curl_exec($curl);
+    curl_close($curl);
+    return (json_decode($result, 1));
 }
