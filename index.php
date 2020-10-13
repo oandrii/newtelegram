@@ -10,6 +10,8 @@ file_put_contents($filename, $data);
 
 ///$data = $data['message'];
 $message = $data['message']['text'];
+var_dump($message);
+die;
 //
 //switch($message)
 //{
