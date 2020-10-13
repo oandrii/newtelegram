@@ -55,7 +55,6 @@ $message = $data['message']['text'];
 //    return (json_decode($result, 1));
 //}
 
-if($message == 'qwe') {
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
     $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
@@ -94,4 +93,3 @@ if($message == 'qwe') {
     $output = curl_exec($curld);
 
     curl_close($curld);
-}
