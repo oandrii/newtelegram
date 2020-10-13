@@ -6,6 +6,7 @@ $filename = 'log.log';
 //$result = file_get_contents($url);
 
 $result = $_POST;
+$result = json_encode($result, true);
 
 //$result = $_POST;
 //print_r($result);
