@@ -29,8 +29,8 @@ if($text == '/start') {
             ),
 
         )),
-        "one_time_keyboard" => true, // Can be FALSE (hide keyboard after click)
-        "resize_keyboard" => true // Can be FALSE (vertical resize)
+        "one_time_keyboard" => false, // Can be FALSE (hide keyboard after click)
+        "resize_keyboard" => false // Can be FALSE (vertical resize)
     );
 
     $postfields = array(
