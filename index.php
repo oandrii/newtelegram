@@ -11,7 +11,7 @@ file_put_contents($filename, $data);
 $message = json_decode($data, TRUE);
 
 
-$text = $bookshelf['message']['text'];
+$text = $message['message']['text'];
 
 
 if($text == '/start') {
