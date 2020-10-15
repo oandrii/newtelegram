@@ -18,7 +18,6 @@ if($text == '/start') {
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
     $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
-
     $reply = "share your number";
     $url = "https://api.telegram.org/bot$bot_token/sendMessage";
 
@@ -40,7 +39,6 @@ if($text == '/start') {
         'reply_markup' => json_encode($keyboard)
     );
 
-    print_r($postfields);
     if (!$curld = curl_init()) {
         exit;
     }
