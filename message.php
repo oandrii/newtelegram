@@ -3,8 +3,8 @@
 $filename = 'log.log';
 
 $data = file_get_contents($filename);
-$bookshelf = json_decode($data, TRUE);
+$message = json_decode($data, TRUE);
 
 echo "<pre>";
-print_r($bookshelf);
+print_r($message);
 echo "</pre>";
