@@ -8,13 +8,13 @@ $filename = 'log.log';
 $data = file_get_contents('php://input');
 file_put_contents($filename, $data);
 
-$message = json_decode($data, TRUE);
+$bookshelf = json_decode($data, TRUE);
 
 
-$text = $message['message']['text'];
+$message = $bookshelf['message']['text'];
 
 
-if($text == '/start') {
+if($message == '/start') {
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
     $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
