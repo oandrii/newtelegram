@@ -8,7 +8,7 @@ $filename = 'log.log';
 $data = file_get_contents('php://input');
 file_put_contents($filename, $data);
 
-$message = json_decode($data, TRUE);
+$message = json_decode($data);
 
 
 $text = $message['message']['text'];
