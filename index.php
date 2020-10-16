@@ -18,7 +18,7 @@ $client = new GuzzleHttp\Client(['base_uri' => "https://api.telegram.org/bot$bot
 
 $reply = ":)";
 
-$response = $client->request('POST', 'http://httpbin.org/post', [
+$response = $client->request('POST', "https://api.telegram.org/bot$bot_token/sendMessage", [
     'form_params' => [
         'chat_id' => $chat_id,
         'text' => $reply,
