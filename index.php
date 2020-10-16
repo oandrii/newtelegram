@@ -12,7 +12,7 @@ $client = new Client( array( 'base_uri' => $apiURL ) );
 
 $update = json_decode( file_get_contents( 'php://input' ) );
 
-if ( $update->message->text == 'Hello' ) {
+if ( $update->message->text == '/start' ) {
     $keyboard = array(
         "keyboard" => array(array(
             array(
