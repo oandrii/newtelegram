@@ -2,8 +2,7 @@
 
 $filename = 'log.log';
 
-$data = file_get_contents($filename);
-$message = json_decode($data, TRUE);
+$message = json_decode( file_get_contents( 'php://input' ) );
 
 echo "<pre>";
 print_r($message);
