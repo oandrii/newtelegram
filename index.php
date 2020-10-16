@@ -12,23 +12,6 @@ $message = json_decode($data, TRUE);
 
 
 $text = $message['message']['text'];
-$chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
-$client = new GuzzleHttp\Client();
-
-// Create a POST request
-$response = $client->request(
-    'POST',
-    'https://api.telegram.org/bot$bot_token/sendMessage',
-    [
-        'form_params' => [
-            'text' => $response,
-            'chat_id' => $chat_id
-        ]
-    ]
-);
-$body = $response->getBody();
-
-var_dump($body);
 
 
 if($text == '/start') {
