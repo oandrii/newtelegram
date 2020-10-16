@@ -18,8 +18,14 @@ $text = $message['message']['text'];
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
     $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
-$smile = new \GuzzleHttp\Client(['base_uri' => "https://api.telegram.org/bot$bot_token/"]);
-$smile->post('sendMessage', array( 'query' => array( 'chat_id' => $chat_id, 'text' => "Welcome to MQH Blog's Bot" ) ) );
+$smile = new \GuzzleHttp\Client();
+
+$response = $smile->request('POST', 'https://api.telegram.org/bot$bot_token/', [
+    'form_params' => [
+        'chat_id' => $chat_id,
+        'text' => 'Welcome to MQH Blog\'s Bot'
+    ],
+]);
 die();
 
     $reply = "share your number";
