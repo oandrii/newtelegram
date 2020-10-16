@@ -5,7 +5,7 @@ $filename = 'log.log';
 //$url = 'https://api.telegram.org/bot' . $bot_id . '/getUpdates?offset=0';
 //$result = file_get_contents($url);
 
-$data = file_get_contents(Yii::$app->request->post());
+$data = file_get_contents('php://input');
 file_put_contents($filename, $data);
 
 $message = json_decode($data, TRUE);
