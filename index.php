@@ -15,7 +15,7 @@ $text = $message['message']['text'];
 
 if($text) {
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
-    $apiURL = 'https://api.telegram.org/bot' . $botToken . '/';
+    $apiURL = 'https://api.telegram.org/bot' . $bot_token . '/';
     $chat_id = "718524282";
     $reply = "Please share your number";
 
