@@ -10,32 +10,8 @@ file_put_contents($filename, $data);
 
 $message = json_decode($data, TRUE);
 
+
 $text = $message['message']['text'];
-
-$bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
-$chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
-
-$reply = ":)";
-$url = "https://api.telegram.org/bot$bot_token/sendMessage";
-
-$postfields = array(
-    'chat_id' => "$chat_id",
-    'text' => "$reply",
-);
-if (!$curld = curl_init()) {
-    exit;
-}
-
-curl_setopt($curld, CURLOPT_POST, true);
-curl_setopt($curld, CURLOPT_POSTFIELDS, $postfields);
-curl_setopt($curld, CURLOPT_URL, $url);
-curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
-
-$output = curl_exec($curld);
-
-curl_close($curld);
-
-
 
 
 if($text == '/start') {
