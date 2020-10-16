@@ -1,6 +1,4 @@
 <?php
-use GuzzleHttp\Client;
-
 $filename = 'log.log';
 
 //$bot_id = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
@@ -15,29 +13,6 @@ $message = json_decode($data, TRUE);
 
 $text = $message['message']['text'];
 
-//if($text) {
-//    $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
-//    $apiURL = "https://api.telegram.org/bot$bot_token/";
-//    $chat_id = "718524282";
-//    $reply = "Please share your number";
-//
-//    $keyboard = [
-//        "keyboard" => [
-//            [
-//                "text" => "Share my number",
-//                "request_contact" => true
-//            ],
-//        ],
-//        "one_time_keyboard" => false,
-//        "resize_keyboard" => false
-//    ];
-//
-//    $reply_markup = json_encode($keyboard);
-//
-//    $client = new Client(['base_uri' => $apiURL]);
-//
-//    $client->post('sendMessage', ['query' => ['chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup]]);
-//}
 
 if($text) {
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
