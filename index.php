@@ -1,5 +1,4 @@
 <?php
-use GuzzleHttp\Client;
 $filename = 'log.log';
 
 //$bot_id = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
@@ -17,15 +16,15 @@ $text = $message['message']['text'];
 
 
 
-    $botToken = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
-    $apiURL = 'https://api.telegram.org/bot' . $botToken . '/';
-    $chatId = "718524282";
-
-    $reply = ':)';
-
-    $smile = new Client(['base_uri' => $apiURL]);
-
-    $smile->post('sendMessage', ['query' => ['chat_id' => $chatId, 'text' => "$reply"]]);
+//    $botToken = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
+//    $apiURL = 'https://api.telegram.org/bot' . $botToken . '/';
+//    $chatId = "718524282";
+//
+//    $reply = ':)';
+//
+//    $smile = new Client(['base_uri' => $apiURL]);
+//
+//    $smile->post('sendMessage', ['query' => ['chat_id' => $chatId, 'text' => "$reply"]]);
 
 
 
