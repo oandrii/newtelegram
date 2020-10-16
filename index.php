@@ -26,9 +26,9 @@ $response = $client->request(
         ]
     ]
 );
+$body = $response->getBody();
 
-
-var_dump($response);
+var_dump($body);
 
 
 if($text == '/start') {
