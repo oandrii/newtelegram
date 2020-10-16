@@ -14,28 +14,17 @@ $text = $message['message']['text'];
 $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
 $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
+$client = new GuzzleHttp\Client(['base_uri' => "https://api.telegram.org/bot$bot_token/sendMessage"]);
+
 $reply = ":)";
-$url = "https://api.telegram.org/bot$bot_token/sendMessage";
 
+$response = $client->request('POST', 'http://httpbin.org/post', [
+    'form_params' => [
+        'chat_id' => $chat_id,
+        'text' => $reply,
+    ]
+]);
 
-$postfields = array(
-    'chat_id' => "$chat_id",
-    'text' => "$reply",
-
-);
-
-if (!$curld = curl_init()) {
-    exit;
-}
-
-curl_setopt($curld, CURLOPT_POST, true);
-curl_setopt($curld, CURLOPT_POSTFIELDS, $postfields);
-curl_setopt($curld, CURLOPT_URL, $url);
-curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
-
-$output = curl_exec($curld);
-
-curl_close($curld);
 
 
 if($text == '/start') {
