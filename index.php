@@ -1,5 +1,4 @@
 <?php
-
 $filename = 'log.log';
 
 //$bot_id = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
@@ -11,22 +10,37 @@ file_put_contents($filename, $data);
 
 $message = json_decode($data, TRUE);
 
-
 $text = $message['message']['text'];
 
+$bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
+$chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
+$reply = ":)";
+$url = "https://api.telegram.org/bot$bot_token/sendMessage";
+
+$postfields = array(
+    'chat_id' => "$chat_id",
+    'text' => "$reply",
+);
+if (!$curld = curl_init()) {
+    exit;
+}
+
+curl_setopt($curld, CURLOPT_POST, true);
+curl_setopt($curld, CURLOPT_POSTFIELDS, $postfields);
+curl_setopt($curld, CURLOPT_URL, $url);
+curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
+
+$output = curl_exec($curld);
+
+curl_close($curld);
+
+
+
+
+if($text == '/start') {
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
     $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
-
-$smile = new \GuzzleHttp\Client();
-
-$response = $smile->request('POST', "https://api.telegram.org/bot$bot_token/sendMessage", [
-    'form_params' => [
-        'chat_id' => $chat_id,
-        'text' => 'Welcome to MQH Blogs Bot'
-    ],
-]);
-die();
 
     $reply = "share your number";
     $url = "https://api.telegram.org/bot$bot_token/sendMessage";
@@ -61,3 +75,4 @@ die();
     $output = curl_exec($curld);
 
     curl_close($curld);
+}
