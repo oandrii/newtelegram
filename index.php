@@ -17,7 +17,7 @@ $text = $message['message']['text'];
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
     $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
-    $reply = "share your number";
+    $reply = "share gfhfghfgh number";
     $url = "https://api.telegram.org/bot$bot_token/sendMessage";
 
     $keyboard = array(
