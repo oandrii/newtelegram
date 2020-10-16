@@ -14,21 +14,6 @@ $message = json_decode($data, TRUE);
 $text = $message['message']['text'];
 
 
-
-
-//    $botToken = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
-//    $apiURL = 'https://api.telegram.org/bot' . $botToken . '/';
-//    $chatId = "718524282";
-//
-//    $reply = ':)';
-//
-//    $smile = new Client(['base_uri' => $apiURL]);
-//
-//    $smile->post('sendMessage', ['query' => ['chat_id' => $chatId, 'text' => "$reply"]]);
-
-
-
-
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
     $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
