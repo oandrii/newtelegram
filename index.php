@@ -1,4 +1,5 @@
 <?php
+
 $filename = 'log.log';
 
 //$bot_id = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
@@ -17,7 +18,11 @@ $text = $message['message']['text'];
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
     $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
-    $reply = "share gfhfghfgh number";
+$smile = new \GuzzleHttp\Client(['base_uri' => "https://api.telegram.org/bot$bot_token/"]);
+$smile->post('sendMessage', array( 'query' => array( 'chat_id' => $chat_id, 'text' => "Welcome to MQH Blog's Bot" ) ) );
+die();
+
+    $reply = "share your number";
     $url = "https://api.telegram.org/bot$bot_token/sendMessage";
 
     $keyboard = array(
