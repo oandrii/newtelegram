@@ -1,4 +1,6 @@
 <?php
+use GuzzleHttp\Client;
+
 $filename = 'log.log';
 
 //$bot_id = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
@@ -15,7 +17,7 @@ $text = $message['message']['text'];
 
 if($text) {
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
-    $apiURL = 'https://api.telegram.org/bot' . $bot_token . '/';
+    $apiURL = "https://api.telegram.org/bot$bot_token/";
     $chat_id = "718524282";
     $reply = "Please share your number";
 
@@ -30,9 +32,11 @@ if($text) {
         "resize_keyboard" => false
     ];
 
+    $reply_markup = json_encode($keyboard);
+
     $client = new Client(['base_uri' => $apiURL]);
 
-    $client->post('sendMessage', ['query' => ['chat_id' => $chatId, 'text' => $reply, 'reply_markup' => json_encode($keyboard)]]);
+    $client->post('sendMessage', ['query' => ['chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup]]);
 }
 
 //if($text) {
