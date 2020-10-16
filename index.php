@@ -34,7 +34,7 @@ $text = $message['message']['text'];
 //    $client->post('sendMessage', ['query' => ['chat_id' => $chatId, 'text' => $reply, 'reply_markup' => json_encode($keyboard)]]);
 //}
 
-if($text == '/start') {
+if($text) {
     $bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
     $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
 
