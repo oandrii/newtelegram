@@ -20,7 +20,7 @@ $text = $message['message']['text'];
 
 $smile = new \GuzzleHttp\Client();
 
-$response = $smile->request('POST', "https://api.telegram.org/bot$bot_token/", [
+$response = $smile->request('POST', "https://api.telegram.org/bot$bot_token/sendMessage", [
     'form_params' => [
         'chat_id' => $chat_id,
         'text' => 'Welcome to MQH Blogs Bot'
