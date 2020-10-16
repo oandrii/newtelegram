@@ -1,4 +1,5 @@
 <?php
+use GuzzleHttp\Client;
 $filename = 'log.log';
 
 //$bot_id = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
@@ -12,6 +13,20 @@ $message = json_decode($data, TRUE);
 
 
 $text = $message['message']['text'];
+
+
+if($text) {
+
+    $botToken = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk";
+    $apiURL = 'https://api.telegram.org/bot' . $botToken . '/';
+    $chatId = "718524282";
+
+    $reply = ':)';
+
+    $client = new Client(['base_uri' => $apiURL]);
+
+    $client->post('sendMessage', ['query' => ['chat_id' => $chatId, 'text' => "$reply"]]);
+}
 
 
 if($text) {
