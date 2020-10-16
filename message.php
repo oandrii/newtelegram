@@ -1,6 +1,9 @@
 <?php
 
-$message = json_decode( file_get_contents( 'php://input' ) );
+$filename = 'log.log';
+
+$data = file_get_contents($filename);
+$message = json_decode($data, TRUE);
 
 echo "<pre>";
 print_r($message);
