@@ -12,7 +12,12 @@ $client = new Client( array( 'base_uri' => $apiURL ) );
 
 $update = json_decode( file_get_contents( 'php://input' ) );
 
-if ( $update->message->text == 'Hello' )
-    $client->post( 'sendMessage', array( 'query' => array( 'chat_id' => $update->message->chat->id, 'text' => "Welcome to MQH Blog's Bot" ) ) );
+if ( $update->message->text == 'Hello' ) {
+    $client->post('sendMessage', array('query' => array('chat_id' => $update->message->chat->id, 'text' => "Welcome to MQH Blog's Bot")));
+}
+else {
+    $client->post('sendMessage', array('query' => array('chat_id' => $update->message->chat->id, 'text' => ":)")));
+
+}
 
 ?>
