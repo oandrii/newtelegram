@@ -13,7 +13,21 @@ $client = new Client( array( 'base_uri' => $apiURL ) );
 $update = json_decode( file_get_contents( 'php://input' ) );
 
 if ( $update->message->text == 'Hello' ) {
-    $client->post('sendMessage', array('query' => array('chat_id' => $update->message->chat->id, 'text' => "Welcome to MQH Blog's Bot")));
+    $keyboard = array(
+        "keyboard" => array(array(
+            array(
+                "text" => "contact",
+                "request_contact" => true // This is OPTIONAL telegram button
+            ),
+
+        )),
+        "one_time_keyboard" => false, // Can be FALSE (hide keyboard after click)
+        "resize_keyboard" => false // Can be FALSE (vertical resize)
+    );
+    $client->post('sendMessage', array('query' => array(
+        'chat_id' => $update->message->chat->id,
+        'text' => "Share you contacts",
+        'reply_markup' => json_encode($keyboard))));
 }
 else {
     $client->post('sendMessage', array('query' => array('chat_id' => $update->message->chat->id, 'text' => ":)")));
