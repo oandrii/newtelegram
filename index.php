@@ -9,22 +9,26 @@ $data = file_get_contents('php://input');
 file_put_contents($filename, $data);
 
 $message = json_decode($data, TRUE);
+
+
 $text = $message['message']['text'];
-
-$bot_token = "1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk"; // Telegram bot token
 $chat_id = "718524282"; // dont forget about TELEGRAM CHAT ID
-
 $client = new GuzzleHttp\Client();
 
-$reply = ":)";
-
-$response = $client->request('POST', "https://api.telegram.org/bot$bot_token/sendMessage",
-    ['form_params' => [
-        'text' => $reply,
-        'chat_id' => $chat_id
+// Create a POST request
+$response = $client->request(
+    'POST',
+    'https://api.telegram.org/bot$bot_token/sendMessage',
+    [
+        'form_params' => [
+            'text' => $response,
+            'chat_id' => $chat_id
+        ]
     ]
-    ]);
+);
 
+
+var_dump($response);
 
 
 if($text == '/start') {
