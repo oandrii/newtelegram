@@ -5,7 +5,7 @@ $data = file_get_contents('php://input');
 file_put_contents($filename, $data);
 
 
-require_once( 'vendor/autoload.php');
+require_once( '/vendor/autoload.php');
 use GuzzleHttp\Client;
 
 $apiKey = '1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk'; // Put your bot's API key here
