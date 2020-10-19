@@ -1,16 +1,15 @@
 <?php
-
 ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);
 error_reporting(-1);
 
+
+require_once( 'vendor/autoload.php');
+use GuzzleHttp\Client;
+
 $filename = 'log.log';
 $data = file_get_contents('php://input');
 file_put_contents($filename, $data);
-
-
-require_once( '/vendor/autoload.php');
-use GuzzleHttp\Client;
 
 $apiKey = '1372199341:AAEG7UXyMvVYpHukmbnAwvwh4VU7rxH1gQk'; // Put your bot's API key here
 $apiURL = 'https://api.telegram.org/bot' . $apiKey . '/';
