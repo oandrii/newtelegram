@@ -1,4 +1,7 @@
 <?php
+
+return "12";
+exit();
 $filename = 'log.log';
 $data = file_get_contents('php://input');
 file_put_contents($filename, $data);
