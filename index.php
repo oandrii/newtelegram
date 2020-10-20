@@ -36,7 +36,21 @@ if ( $update->message->text == '/start' ) {
         'reply_markup' => json_encode($keyboard))));
 }
 else {
-    $client->post('sendMessage', array('query' => array('chat_id' => $update->message->chat->id, 'text' => ":)")));
+    $keyboard = array(
+        "keyboard" => array(array(
+            array(
+                "text" => "text",
+            ),
+
+        )),
+        "one_time_keyboard" => false, // Can be FALSE (hide keyboard after click)
+        "resize_keyboard" => false // Can be FALSE (vertical resize)
+    );
+    $client->post('sendMessage', array('query' => array(
+        'chat_id' => $update->message->chat->id,
+        'text' => "----",
+        'reply_markup' => json_encode($keyboard),
+        )));
 
 }
 
