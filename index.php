@@ -38,9 +38,6 @@ if ( $update->message->text == '/start' ) {
 else {
     $keyboard = array(
         "keyboard" => array(array(
-            array(
-                "text" => "available",
-            ),
 
         )),
         "one_time_keyboard" => false, // Can be FALSE (hide keyboard after click)
