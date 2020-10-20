@@ -28,7 +28,7 @@ if ( $update->message->text == '/start' ) {
 
         )),
         "one_time_keyboard" => false, // Can be FALSE (hide keyboard after click)
-        "resize_keyboard" => false // Can be FALSE (vertical resize)
+        "resize_keyboard" => true // Can be FALSE (vertical resize)
     );
     $client->post('sendMessage', array('query' => array(
         'chat_id' => $update->message->chat->id,
@@ -39,12 +39,12 @@ else {
     $keyboard = array(
         "keyboard" => array(array(
             array(
-                "text" => "text",
+                "text" => "available",
             ),
 
         )),
         "one_time_keyboard" => false, // Can be FALSE (hide keyboard after click)
-        "resize_keyboard" => false // Can be FALSE (vertical resize)
+        "resize_keyboard" => true // Can be FALSE (vertical resize)
     );
     $client->post('sendMessage', array('query' => array(
         'chat_id' => $update->message->chat->id,
