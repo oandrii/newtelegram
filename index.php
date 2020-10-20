@@ -28,7 +28,7 @@ if ( $update->message->text == '/start' ) {
 
         )),
         "one_time_keyboard" => false, // Can be FALSE (hide keyboard after click)
-        "resize_keyboard" => true // Can be FALSE (vertical resize)
+        "resize_keyboard" => false // Can be FALSE (vertical resize)
     );
     $client->post('sendMessage', array('query' => array(
         'chat_id' => $update->message->chat->id,
@@ -36,40 +36,10 @@ if ( $update->message->text == '/start' ) {
         'reply_markup' => json_encode($keyboard))));
 }
 else {
-    $inline_keyboard = array('inline_keyboard' =>
-        array(
-            array(
-                array(
-                    'text' => "\xF0\x9F\x93\x9D Заказы", 'callback_data' => '/orders'
-                ),
-                array(
-                    'text' => "\xF0\x9F\x93\x8A Статистика", 'callback_data' => '/stats'
-                ),
-                array(
-                    'text' => "\xF0\x9F\x92\xB0 Баланс", 'callback_data' => '/balance'
-                )
-            ),
-            array(
-                array(
-                    'text' => "\xF0\x9F\x92\xB0 Баланс", 'callback_data' => '/balance'
-                ),
-                array(
-                    'text' => "\xF0\x9F\x93\x8B Счета", 'callback_data' => '/bills'
-                )
-            ),
-            array(
-                array(
-                    'text' => "\xF0\x9F\x93\x9D Заказы", 'callback_data' => '/orders'
-                )
-            ),
-        ),
-
-    );
     $client->post('sendMessage', array('query' => array(
         'chat_id' => $update->message->chat->id,
-        'text' => "----",
-        'reply_markup' => json_encode($inline_keyboard),
-        )));
+        'text' => ":)",
+        'reply_markup' => ReplyKeyboardRemove())));
 
 }
 
