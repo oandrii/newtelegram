@@ -36,7 +36,13 @@ if ( $update->message->text == '/start' ) {
         'reply_markup' => json_encode($keyboard))));
 }
 else {
-    $client->post('sendMessage', array('query' => array('chat_id' => $update->message->chat->id, 'text' => ":)")));
+
+    $keyboard = ["remove_keyboard" => true];
+
+    $client->post('sendMessage', array('query' => array(
+        'chat_id' => $update->message->chat->id,
+        'text' => ":)",
+        'reply_markup' => json_encode($keyboard))));
 
 }
 
