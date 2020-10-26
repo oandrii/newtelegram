@@ -53,6 +53,7 @@ else {
     ];
     $client->post('sendMessage', array('query' => array(
         'chat_id' => $update->message->chat->id,
+        'text' => "select your status",
         'reply_markup' => json_encode($keyboard))));
 }
 
