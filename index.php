@@ -34,13 +34,29 @@ if ( $update->message->text == '/start' ) {
         'text' => "Share you contacts",
         'reply_markup' => json_encode($keyboard))));
 }
-else {
+elseif ($update->message->text == 'qwe'){
 
     $client->post('sendMessage', array('query' => array(
         'chat_id' => $update->message->chat->id,
         'text' => ":)",
         'reply_markup' => json_encode(["remove_keyboard" => true]))));
 
+}
+else {
+    $keyboard = [
+        "keyboard" => [
+            ['7', '8', '9'],
+            ['4', '5', '6'],
+            ['1', '2', '3'],
+            ['0']
+        ],
+        "one_time_keyboard" => true, // Can be FALSE (hide keyboard after click)
+        "resize_keyboard" => true // Can be FALSE (vertical resize)
+    ];
+    $client->post('sendMessage', array('query' => array(
+        'chat_id' => $update->message->chat->id,
+        'text' => "Share you contacts",
+        'reply_markup' => json_encode($keyboard))));
 }
 
 ?>
