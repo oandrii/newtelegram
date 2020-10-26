@@ -45,15 +45,14 @@ elseif ($update->message->text == 'qwe'){
 else {
     $keyboard = [
         "keyboard" => [
-            ['test'],
-            ['test2'],
+            ['Available'],
+            ['Off'],
         ],
         "one_time_keyboard" => true, // Can be FALSE (hide keyboard after click)
         "resize_keyboard" => true // Can be FALSE (vertical resize)
     ];
     $client->post('sendMessage', array('query' => array(
         'chat_id' => $update->message->chat->id,
-        'text' => "test",
         'reply_markup' => json_encode($keyboard))));
 }
 
