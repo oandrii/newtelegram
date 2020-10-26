@@ -52,7 +52,7 @@ else {
     $client->post('sendMessage', array('query' => array(
         'chat_id' => $update->message->chat->id,
         'text' => ":)",
-        'reply_markup' => json_encode([$keyboard]))));
+        'reply_markup' => json_encode($keyboard))));
 
 }
 
